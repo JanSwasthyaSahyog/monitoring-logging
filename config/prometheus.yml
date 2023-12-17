@@ -7,9 +7,10 @@ scrape_configs:
   - targets:
     - prometheus:9090
 
-  - job_name: 'blackbox_exporter'
-    static_configs:
-      - targets: ['blackbox-exporter:9115']
+- job_name: 'blackbox_exporter'
+  static_configs:
+  - targets: 
+    - 'blackbox-exporter:9115'
 
 - job_name: cadvisor
   static_configs:
@@ -34,5 +35,6 @@ scrape_configs:
     - target_label: __address__
       replacement: blackbox-exporter:9115
   static_configs:
-    - targets:
-      - 
+  - targets:
+    - 
+
