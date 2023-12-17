@@ -11,3 +11,19 @@ scrape_configs:
   - targets:
     - 
 
+- job_name: prometheus
+  scrape_interval: 15s
+  static_configs:
+  - targets:
+    - prometheus:9090
+
+- job_name: blackbox
+  metrics_path: /probe
+  scrape_interval: 15s
+  params:
+    module: [http_2xx]
+  static_configs:
+  - targets:
+    - prometheus:9090
+    - grafana:3000
+
