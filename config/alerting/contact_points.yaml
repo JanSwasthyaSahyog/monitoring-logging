@@ -6,7 +6,7 @@ contactPoints:
         - uid: default-email
           type: email
           settings:
-            addresses: example@example.com
+            addresses: ${DEFAULT_ALERT_MAIL_RECEIVER}
             message: '{{ template "mail.content" . }}'
             singleEmail: true
             subject: '{{ template "mail.subject" . }}'
@@ -18,7 +18,7 @@ contactPoints:
         - uid: critical-high-email
           type: email
           settings:
-            addresses: example@example.com
+            addresses: ${CRITICAL_ALERT_MAIL_RECEIVER}
             message: '{{ template "mail.content" . }}'
             singleEmail: true
             subject: '{{ template "mail.subject" . }}'
