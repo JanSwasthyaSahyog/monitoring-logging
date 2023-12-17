@@ -67,6 +67,7 @@ services:
 
     volumes:
       - ./config/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yml
+      - ./config/alerting:/etc/grafana/provisioning/alerting
       - grafana-storage:/var/lib/grafana
 
   loki:
