@@ -59,10 +59,10 @@ groups:
             summary: 'The node {{ index $labels "instance" }} has low available memory less than 30%. Current availability: {{ index $values "A" }}%'
           labels:
             severity: |
-              {{ if (le index $values "A" 5.0) -}} critical 
-              {{ else if (lt index $values "A" 10.0) -}} high 
-              {{ else if (lt index $values "A" 20.0) -}} medium 
-              {{ else if (lt index $values "A" 30.0) -}} low 
+              {{ if (le $$values.A.Value 5.0) -}} critical 
+              {{ else if (lt $$values.A.Value 10.0) -}} high 
+              {{ else if (lt $$values.A.Value 20.0) -}} medium 
+              {{ else if (lt $$values.A.Value 30.0) -}} low 
               {{ else -}} normal {{- end }}
           isPaused: false
         - uid: cacfdbd1-f705-4580-918f-ccb951ef03dd
@@ -121,10 +121,10 @@ groups:
                 %
           labels:
             severity: |
-              {{ if (gt index $values "A" 95.0) -}} critical 
-              {{ else if (gt index $values "A" 90.0) -}} high 
-              {{ else if (gt index $values "A" 80.0) -}} medium 
-              {{ else if (gt index $values "A" 75.0) -}} low 
+              {{ if (gt $$values.A.Value 95.0) -}} critical 
+              {{ else if (gt $$values.A.Value 90.0) -}} high 
+              {{ else if (gt $$values.A.Value 80.0) -}} medium 
+              {{ else if (gt $$values.A.Value 75.0) -}} low 
               {{ else -}} normal {{- end }}
           isPaused: false
         - uid: ec043466-05a1-44ea-a196-c2c4bb73a302
@@ -181,10 +181,10 @@ groups:
             summary: 'The node {{ index $labels "instance" }} has low available disk space in root volume less than 30%. Current availability: {{ index $values "A" }}%'
           labels:
             severity: |
-              {{ if (le index $values "A" 5.0) -}} critical 
-              {{ else if (lt index $values "A" 10.0) -}} high 
-              {{ else if (lt index $values "A" 20.0) -}} medium 
-              {{ else if (lt index $values "A" 30.0) -}} low 
+              {{ if (le $$values.A.Value 5.0) -}} critical 
+              {{ else if (lt $$values.A.Value 10.0) -}} high 
+              {{ else if (lt $$values.A.Value 20.0) -}} medium 
+              {{ else if (lt $$values.A.Value 30.0) -}} low 
               {{ else -}} normal 
               {{- end }}
           isPaused: false

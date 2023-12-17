@@ -58,7 +58,13 @@ groups:
             resource: '{{ index $labels "container_label_com_docker_compose_service"  }}  container'
             summary: The container {{ index $labels "container_label_com_docker_compose_service"  }} has exceeded 50% CPU usage for the last 5 minutes and consumes {{ index $values "A" }}%
           labels:
-            severity: '{{ if (gt $values.A.Value 150.0) -}} critical {{ else if (gt $values.A.Value 100.0) -}} high {{ else if (gt $values.A.Value 50.0) -}} medium {{ else if (gt $values.A.Value 25.0) -}} low {{ else -}} normal {{- end }}'
+            severity: |
+              {{ if (gt $$values.A.Value 150.0) -}} critical 
+              {{ else if (gt $$values.A.Value 100.0) -}} high 
+              {{ else if (gt $$values.A.Value 50.0) -}} medium 
+              {{ else if (gt $$values.A.Value 25.0) -}} low 
+              {{ else -}} normal 
+              {{- end }}
           isPaused: false
         - uid: ffa0e4da-4123-48a7-ad1c-c1c77e387775
           title: Container Memory Usage Alert
@@ -110,8 +116,14 @@ groups:
           execErrState: Error
           for: 2m
           annotations:
-            resource: '{{ index $labels "container_label_com_docker_compose_service" }}'
+            resource: '{{ index $labels "container_label_com_docker_compose_service" }} container'
             summary: The container {{ index $labels "container_label_com_docker_compose_service" }} has exceeded 1024 MB memory usage and consumes {{ index $values "A" }} MB
           labels:
-            severity: '{{ if (gt $values.A.Value 2048.0) -}} critical {{ else if (gt $values.A.Value 1536.0) -}} high {{ else if (gt $values.A.Value 1024.0) -}} medium {{ else if (gt $values.A.Value 768.0) -}} low {{ else -}} normal {{- end }}'
+            severity: |
+              {{ if (gt $$values.A.Value 2048.0) -}} critical 
+              {{ else if (gt $$values.A.Value 1536.0) -}} high 
+              {{ else if (gt $$values.A.Value 1024.0) -}} medium 
+              {{ else if (gt $$values.A.Value 768.0) -}} low 
+              {{ else -}} normal 
+              {{- end }}
           isPaused: false
