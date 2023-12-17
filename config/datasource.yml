@@ -6,6 +6,7 @@ deleteDatasources:
 
 datasources:
 - name: loki
+  uid: loki
   type: loki
   access: proxy
   orgId: 1
@@ -16,6 +17,7 @@ datasources:
   editable: false
 
 - name: Prometheus
+  uid: prometheus
   type: prometheus
   access: proxy
   orgId: 1
