@@ -93,7 +93,7 @@ groups:
                 conditions:
                     - evaluator:
                         params:
-                            - 2048
+                            - 1024
                         type: gt
                       operator:
                         type: and
