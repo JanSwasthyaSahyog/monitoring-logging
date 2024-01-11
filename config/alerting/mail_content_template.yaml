@@ -8,7 +8,7 @@ templates:
     editable: true
 
     template: |
-      {{ define "mail.content_NEW_1702802787805" }}
+      {{ define "mail.content" }}
       {{ if .Alerts.Firing }}
         Firing alert(s):
         {{ range .Alerts.Firing }}
